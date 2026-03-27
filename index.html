@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ghostito</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    #gameCanvas {
+      display: block;
+      /* El canvas se escala para ocupar la pantalla manteniendo proporción 16:9 */
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+    #loadingScreen {
+      position: fixed;
+      inset: 0;
+      background: #0a0a1e;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2rem;
+      z-index: 10;
+      gap: 20px;
+    }
+    #loadingScreen p { font-size: 1rem; color: #aaa; }
+    #loadBar {
+      width: 300px; height: 10px;
+      background: #333; border-radius: 5px; overflow: hidden;
+    }
+    #loadFill {
+      height: 100%; background: #7ecfff;
+      width: 0%; transition: width 0.2s;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="loadingScreen">
+    <div>👻 GHOSTITO</div>
+    <div id="loadBar"><div id="loadFill"></div></div>
+    <p id="loadText">Cargando recursos...</p>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+  <script src="game.js"></script>
+</body>
+</html>
